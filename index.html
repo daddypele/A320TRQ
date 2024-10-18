@@ -21,7 +21,7 @@
       let jsonData = {}; // To store the combined JSON file
 
       // Fetch JSON Data
-      fetch('combined_questions.json') // Ensure combined.json is in the same directory or adjust path
+      fetch('combined.json') // Ensure combined.json is in the same directory or adjust path
         .then(response => {
           if (!response.ok) {
             throw new Error('Network response was not ok');
@@ -29,7 +29,8 @@
           return response.json();
         })
         .then(data => {
-          jsonData = data;
+          jsonData = data.subjects; // Access subjects directly
+          console.log('Loaded JSON Data:', jsonData); // Log the loaded data for debugging
           loadSubjects(); // Function to load the subjects on the homepage
         })
         .catch(error => {
@@ -42,11 +43,12 @@
         const subjectList = document.getElementById('subject-list');
 
         // Check if jsonData has any subjects
-        if (Object.keys(jsonData).length === 0) {
+        if (!jsonData || Object.keys(jsonData).length === 0) {
           document.getElementById('error-message').style.display = 'block'; // Show error message
           return;
         }
 
+        // Populate subject list
         Object.keys(jsonData).forEach(subject => {
           const subjectDiv = document.createElement('div');
           subjectDiv.classList.add('subject-item');
