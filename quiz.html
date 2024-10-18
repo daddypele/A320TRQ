@@ -9,8 +9,13 @@
 <body>
   <h1 id="subject-name"></h1>
   <div id="quiz-container"></div>
+  <div id="question-input" style="display:none;">
+    <label for="number-of-questions">How many questions would you like to attempt?</label>
+    <input type="number" id="number-of-questions" min="1" />
+    <button id="start-quiz">Start Quiz</button>
+  </div>
   <button id="next-question" style="display:none;">Next Question</button>
 
-  <script src="script.js"></script>
+  <script src="quiz_script.js"></script> <!-- Ensure this file exists -->
 </body>
 </html>
