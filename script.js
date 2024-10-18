@@ -4,7 +4,7 @@
     let jsonData = {}; // To store the combined JSON file
 
     // Fetch JSON Data
-    fetch('combined.json') // Ensure combined.json is in the same directory or adjust path
+    fetch('combined_questions.json') // Ensure combined.json is in the same directory or adjust path
       .then(response => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`); // More informative error message
